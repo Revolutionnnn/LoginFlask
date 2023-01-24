@@ -86,6 +86,7 @@ def status_401(error):
 def status_404(error):
     return 'No se ha encontrado la pagina'
 
+
 if __name__ == '__main__':
     app.config.from_object(config['development'])
     csrf.init_app(app)
