@@ -1,0 +1,64 @@
+{% extends './base.html '%}
+
+{% block title %} Home {% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary  navbar bg-dark " data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Inicio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+      </div>
+    </div>
+  </div>
+</nav>
+{% endblock %}
+{% block body %}
+<div class="px-4 text-center bg-info">
+    <h1 class="display-4 fw-bold">Crea tu proyecto</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">¡¡Bienvenido al programa de compañeros de trabajo! Estamos contentos de que hayas decidido unirte a nosotros. Nuestro objetivo es ayudarte a encontrar el compañero de trabajo perfecto para ti. Ya sea que estés buscando un compañero para un proyecto a corto plazo o para una colaboración a largo plazo, estamos seguros de que podemos ayudarte a encontrar lo que necesitas. Empecemos a trabajar juntos hoy mismo y aprovecha al máximo tu experiencia laboral. ¡Esperamos conocerte pronto! !</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+        <a class="btn btn-primary" href="{{ url_for('register') }}" role="button">Comenzar</a>
+      </div>
+    </div>
+    <div class="overflow-hidden" style="max-height: 30vh;">
+      <div class="container px-5">
+        <img src="{{ url_for('static', filename='img/bootstrap.png')}}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 mb-3">Crea tu proyecto y consigue personas dispuestas a aprender junto a ti</h1>
+        <p class="col-lg-10 fs-4">¡Bienvenido al programa de compañeros de estudio! Nuestro objetivo es ayudarte a encontrar a alguien con quien colaborar en tus proyectos de estudio. ¡No dejes que el miedo o la duda te detengan! Comienza a trabajar juntos hoy mismo y mejora tu experiencia de estudio. ¡Animo y a trabajar duro!</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form class="p-4 p-md-5 border rounded-3 bg-light">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+          <hr class="my-4">
+          <small class="text-muted">By clicking Login, you agree to the terms of use.</small>
+        </form>
+      </div>
+    </div>
+  </div>
+
+   {% endblock %}
+

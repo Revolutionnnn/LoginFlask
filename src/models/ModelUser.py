@@ -1,3 +1,5 @@
+import email
+
 from src.models.entities.users import User
 
 
@@ -34,3 +36,21 @@ class ModelUser():
                 return None
         except Exception as ex:
             raise Exception(ex)
+
+    @classmethod
+    def register(self, db, user):
+        cursor = db.connection.cursor()
+        passw = user.password
+        slqinsert = "INSERT INTO `users` (`id`, `username`, `password`, `fullname`) VALUES (0, '{}', '{}', " \
+                    "'{}')".format(user.username, user.generate_pass(passw), user.fullname)
+        cursor.execute(slqinsert)
+        db.connection.commit()
+        cursor.close()
+
+    @classmethod
+    def check_user(self, db, username):
+        cursor = db.connection.cursor()
+        cursor.execute('SELECT username FROM users WHERE username = %s', (str(username),))
+        usuario = cursor.fetchone()
+        return usuario
+

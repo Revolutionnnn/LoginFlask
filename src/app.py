@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from config import config
 from flask_mysqldb import MySQL
 from flask_wtf.csrf import CSRFProtect
@@ -21,7 +21,7 @@ def load_user(id):
 
 @app.route('/')
 def index():
-    return redirect(url_for('login'))
+    return render_template('presentation.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -45,6 +45,21 @@ def login():
         return render_template('auth/login.html')
 
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == "POST":
+        user = User(0, request.form['username'], request.form['password'], request.form['fullname'])
+        account = ModelUser.check_user(db, request.form['username'])
+        if account:
+            flash('El usuario existe')
+        elif not request.form['username'] or not request.form['password'] or not request.form['fullname']:
+            flash('no puede estar vacio')
+        else:
+            ModelUser.register(db, user)
+            flash('Registed')
+            return redirect(url_for('register'))
+    return render_template('auth/register.html')
+
 
 @app.route('/home')
 def home():
@@ -52,6 +67,7 @@ def home():
 
 
 @app.route('/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('login'))
@@ -68,8 +84,7 @@ def status_401(error):
 
 
 def status_404(error):
-    return r"<h1> Pagina no encontrada</h1>"
-
+    return 'No se ha encontrado la pagina'
 
 if __name__ == '__main__':
     app.config.from_object(config['development'])
