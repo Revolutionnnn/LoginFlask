@@ -1,9 +1,11 @@
 # LoginFlask
 
 Bievenido a LoginFlask este proyecto comenzo como un simple login, pero quise experimentar un poco mas y segui aprendido un poco mas de FLASK, ahora este proyecto funciona
-como un Login,Register de usuario seguro ya que la contraseña esta siendo hasheada tambien le agregue un home y algo de estilo a la pagina tambien le di un sentido a la pagina
-aun faltan crear un mas cosas para lograr el objetivo, la base de datos esta creada con MYSQL y he usado bootstrap para agregarle estilos a la pagina, no se pueden repetir los usuarios
-valida si un usuario ya esta registrado, en estos momentos asi se ve LoginFlask
+como un Login,Register de usuario seguro ya que la contraseña esta siendo hasheada tambien le agregue un home y algo de estilo a la pagina tambien le di un sentido a la pagina,
+aun faltan crear un mas cosas para lograr el objetivo, la base de datos esta creada con MYSQL y he usado bootstrap para agregarle estilos a la pagina, no se pueden repetir los usuarios ya registrados asi que cada usuario es unico,
+valida si un usuario ya esta registrado
+
+En estos momentos asi se ve LoginFlask
 
 <h3>HOME</h3>
 
